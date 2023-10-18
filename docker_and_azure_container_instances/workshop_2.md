@@ -78,7 +78,7 @@ ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query "id" --output tsv)
 13. Define the password of the service principal.
 
 ```bash
-SERVICE_PRINCIPAL_PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --scopes $ACR_REGISTRY_ID --role acrpull --role acrpush --query "password" --output tsv)
+SERVICE_PRINCIPAL_PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --scopes $ACR_REGISTRY_ID --role acrpull --query "password" --output tsv)
 ```
 
 14. Define the ID of the service principal.
@@ -97,7 +97,7 @@ echo "Service Principal Password : $SERVICE_PRINCIPAL_PASSWORD"
 16. See the repository of the ACR.
 
 ```bash
-az acr repository list --name $ACR_NAME --output table
+az acr repository list --name $ACR_NAME --output table --username $SERVICE_PRINCIPAL_ID --password $SERVICE_PRINCIPAL_PASSWORD
 ```
 
 17. Define a variable for Azure Container Instances name.
