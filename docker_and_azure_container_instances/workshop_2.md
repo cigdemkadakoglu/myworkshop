@@ -72,19 +72,19 @@ SERVICE_PRINCIPAL_NAME=az-sp-cloudevent-cigdem
 12. Define the ID of the Azure Container Registry.
 
 ```bash
-ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query “id” --output tsv)
+ACR_REGISTRY_ID=$(az acr show --name $ACR_NAME --query "id" --output tsv)
 ```
 
 13. Define the password of the service principal.
 
 ```bash
-SERVICE_PRINCIPAL_PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --scopes $ACR_REGISTRY_ID --role acrpull --role acrpush --query “password” --output tsv)
+SERVICE_PRINCIPAL_PASSWORD=$(az ad sp create-for-rbac --name $SERVICE_PRINCIPAL_NAME --scopes $ACR_REGISTRY_ID --role acrpull --role acrpush --query "password" --output tsv)
 ```
 
 14. Define the ID of the service principal.
 
 ```bash
-SERVICE_PRINCIPAL_ID=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query “[].appId” --output tsv)
+SERVICE_PRINCIPAL_ID=$(az ad sp list --display-name $SERVICE_PRINCIPAL_NAME --query "[].appId" --output tsv)
 ```
 
 15. See the output of the service principal ID and password.
