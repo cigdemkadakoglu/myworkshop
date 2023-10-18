@@ -42,5 +42,5 @@ az container logs --resource-group $RESOURCE_GROUP_NAME --name $ACI_NAME
 7. Delete the resource group.
 
 ```bash
-az group delete --name $RESOURE_GROUP_NAME
+az group delete --name $RESOURCE_GROUP_NAME
 ```
