@@ -60,7 +60,7 @@ ACR_NAME=acrcloudevent
 10. Create a container registry.
 
 ```bash
-az acr create --resource-group $RESOURCE_GROUP_NAME --name $ACR_NAME --sku Basic --admin-enabled true 
+az acr create --resource-group $RESOURCE_GROUP_NAME --name $ACR_NAME --sku Basic 
 ```
 
 11. Define a service principal name.
@@ -109,7 +109,7 @@ ACI_NAME=cigdem-aci-demo
 18. Create a container instance.
 
 ```bash
-az container create --resource-group $RESOURCE_GROUP_NAME --name $ACI_NAME --image $ACR_NAME/$IMAGE_NAME--registry-username $SERVICE_PRINCIPAL_ID --registry-password $SERVICE_PRINCIPAL_PASSWORD --ip-address Public --dns-name-label $ACI_NAME --port 8082 --cpu 2 --memory 2
+az container create --resource-group $RESOURCE_GROUP_NAME --name $ACI_NAME --image $ACR_NAME.azurecr.io/$IMAGE_NAME --registry-username $SERVICE_PRINCIPAL_ID --registry-password $SERVICE_PRINCIPAL_PASSWORD --ip-address Public --dns-name-label $ACI_NAME --port 8082 --cpu 2 --memory 2
 ```
 
 19. Check the FQDN of the ACI.
