@@ -9,9 +9,10 @@ RESOURCE_GROUP_NAME=rg-demo
 LOCATION=westeurope
 ```
 
-2. Create a resource group.
+2. Login Azure & Create a resource group.
 
 ```bash
+az login
 az group create --name $RESOURCE_GROUP_NAME --location $LOCATION 
 ```
 
